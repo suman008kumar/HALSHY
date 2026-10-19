@@ -1,0 +1,3 @@
+import { Clock3 } from 'lucide-react';
+import ChannelLogo from './ChannelLogo';
+export default function RecentChannels({ channels, recentIds, onPlay }) { const recent = recentIds.map(id => channels.find(c => c.id === id)).filter(Boolean).slice(0,10); if (!recent.length) return null; return <section className="recent-section"><div className="section-head"><div><span className="section-kicker"><Clock3 size={14}/> YOUR ROTATION</span><h2>Recently Watched</h2></div></div><div className="recent-row">{recent.map(c => <button key={c.id} className="recent-card" onClick={() => onPlay(c)}><ChannelLogo channel={c}/><span>{c.name}</span></button>)}</div></section>; }
